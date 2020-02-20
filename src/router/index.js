@@ -84,28 +84,92 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/realtime',
+    path: '/analysis',
     component: Layout,
     redirect: '/realtime',
-    meta: { title: '实时分析', icon: 'documentation' },
+    meta: { title: '监测分析', icon: 'documentation' },
     children: [
       {
         path: 'realtime',
-        component: () => import('@/views/realtime/index'),
+        component: () => import('@/views/analysis/index'),
         name: 'Realtime',
         meta: { title: '实时监控', icon: 'documentation' }
       },
+      // {
+      //   path: 'statistics',
+      //   component: () => import('@/views/realtime/statistics'),
+      //   name: 'Statistics',
+      //   meta: { title: '综合查询', icon: 'documentation' }
+      // },
+      // {
+      //   path: 'analysis',
+      //   component: () => import('@/views/realtime/analysis'),
+      //   name: 'Analysis',
+      //   meta: { title: '分析报表', icon: 'documentation' }
+      // }
       {
-        path: 'statistics',
-        component: () => import('@/views/realtime/statistics'),
-        name: 'Statistics',
-        meta: { title: '综合查询', icon: 'documentation' }
+        path: 'history',
+        component: () => import('@/views/analysis/history'),
+        name: 'History',
+        meta: { title: '历史分析', icon: 'documentation' }
+      }
+    ]
+  },
+  {
+    path: '/setting',
+    component: Layout,
+    redirect: '/actions',
+    meta: { title: '配置管理', icon: 'documentation' },
+    children: [
+      {
+        path: 'actions',
+        component: () => import('@/views/setting/actions'),
+        name: 'Actions',
+        meta: { title: '手势动作管理', icon: 'documentation' }
       },
       {
-        path: 'analysis',
-        component: () => import('@/views/realtime/analysis'),
-        name: 'Analysis',
-        meta: { title: '分析报表', icon: 'documentation' }
+        path: 'videos',
+        component: () => import('@/views/setting/videos'),
+        name: 'Videos',
+        meta: { title: '摄像机管理', icon: 'documentation' }
+      },
+      {
+        path: 'algorithm',
+        component: () => import('@/views/setting/algorithm'),
+        name: 'Algorithm',
+        meta: { title: '算法配置管理', icon: 'documentation' }
+      },
+      {
+        path: 'platSets',
+        component: () => import('@/views/setting/platSets'),
+        name: 'PlatSets',
+        meta: { title: '平台接入配置', icon: 'documentation' }
+      }
+    ]
+  },
+  {
+    path: '/system',
+    component: Layout,
+    redirect: '/equipment',
+    meta: { title: '系统管理', icon: 'documentation' },
+    children: [
+      {
+        path: 'equipment',
+        component: () => import('@/views/system/equipment'),
+        name: 'Equipment',
+        meta: { title: '设备管理', icon: 'documentation' }
+      },
+      {
+        path: 'user',
+        component: () => import('@/views/system/user'),
+        name: 'User',
+        meta: { title: '用户安全管理', icon: 'documentation' }
+      },
+      {
+        path: 'log',
+        component: () => import('@/views/system/log'),
+        name: 'Log',
+        meta: { title: '日志管理', icon: 'documentation' }
       }
     ]
   }

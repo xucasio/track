@@ -121,7 +121,46 @@ aside {
 
 //main-container全局样式
 .app-container {
-  padding: 20px;
+  padding: 10px;
+  // 右侧抽屉框样式
+  .el-drawer__wrapper{
+    .el-drawer__header{
+      span{
+        outline: none;
+      }
+    }
+    .demo-drawer__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .el-form-item{
+        .el-form-item__content{
+          .el-select--mini{
+            width: 100%;
+          }
+          .el-date-editor{
+            width: 100%;
+          }
+        }
+        label{
+          font-weight: normal;
+        }
+      }
+    }
+    .demo-drawer__content form {
+      flex: 1
+    }
+    .demo-drawer__footer {
+      display: flex;
+      justify-content: flex-end;
+      .el-button--mini{
+        padding: 8px 25px;
+      }
+    }
+    .el-drawer__body {
+      padding: 10px
+    }
+  }
 }
 
 .components-container {
@@ -173,14 +212,25 @@ aside {
 
 .filter-container {
   padding-bottom: 10px;
-
   .filter-item {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 10px;
   }
+  .el-form-item--mini{
+    margin-bottom: 0px;
+    .el-form-item__label{
+      font-weight: normal;
+    }
+  }
 }
-
+.options-container{
+  width: 100%;
+  padding-bottom: 10px;
+}
+.table-container{
+  width: 100%;
+}
 //refine vue-multiselect plugin
 .multiselect {
   line-height: 16px;
@@ -191,6 +241,8 @@ aside {
 }
 
 .el-table--mini th, .el-table--mini td{
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding: 5px;
+}
+.el-table--mini th{
+  background-color: #e3ebfc;
 }

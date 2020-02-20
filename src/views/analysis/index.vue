@@ -35,7 +35,7 @@
             show-overflow-tooltip
             type="index"
             align="center"
-            min-width="50"
+            width="60"
           />
           <el-table-column
             label="信号类型"
@@ -715,7 +715,7 @@ export default {
           color: #666;
         }
         .settingForm{
-          width: 300px;
+          // width: 300px;
           padding: 20px 0;
           .el-select{
             width: 100%

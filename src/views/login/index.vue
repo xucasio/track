@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">机车乘务标准化作业实时监测系统</h3>
+        <h3 class="title">机车标准化实时监测终端</h3>
       </div>
 
       <el-form-item prop="username">

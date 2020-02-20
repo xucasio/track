@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      title: '机车乘务标准化作业实时监测系统',
+      title: '机车标准化实时监测终端',
       logo: logo
     }
   }
