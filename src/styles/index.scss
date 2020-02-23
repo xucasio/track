@@ -230,6 +230,12 @@ aside {
 }
 .table-container{
   width: 100%;
+  .cell{
+    .el-button--mini{
+      padding: 3px 5px;
+      width: auto;
+    }
+  }
 }
 //refine vue-multiselect plugin
 .multiselect {

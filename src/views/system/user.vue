@@ -22,27 +22,27 @@
         highlight-current-row
         style="width: 100%;"
       >
-        <el-table-column label="序号" width="80" align="center">
+        <el-table-column label="序号" width="60" align="center">
           <template slot-scope="{row, $index}">
             <span>{{ $index + 1 }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="用户名" width="120" align="center">
+        <el-table-column label="用户名" width="100" align="center">
           <template slot-scope="{row}">
             <span>{{ row.trainNo }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="姓名" width="120" align="center">
+        <el-table-column label="姓名" width="100" align="center">
           <template slot-scope="{row}">
             <span>{{ row.deviceName }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="工号" width="120" align="center">
+        <el-table-column label="工号" width="100" align="center">
           <template slot-scope="{row}">
             <span>{{ row.ip }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="性别" width="120" align="center">
+        <el-table-column label="性别" width="100" align="center">
           <template slot-scope="{row}">
             <span>{{ row.port }}</span>
           </template>
@@ -67,12 +67,12 @@
             <span>{{ row.lineInfo }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
-          <template slot-scope="{row,$index}">
-            <el-button type="text" size="mini" @click="editHandle(row)">
+        <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+          <template slot-scope="{row}">
+            <!-- <el-button type="text" size="mini" @click="editHandle(row)">
               编辑
-            </el-button>
-            <el-button v-if="row.status!='deleted'" size="mini" type="text" @click="deleteHandle(row,$index)">
+            </el-button> -->
+            <el-button v-if="row.status!='deleted'" size="mini" type="text" @click="deleteHandle(row)">
               删除
             </el-button>
           </template>
@@ -174,10 +174,10 @@ export default {
         current: 1,
         status: 2
       },
-      list: [{}],
+      list: [],
       listLoading: false,
       drawer: false,
-      drawerTitle: '新增设备',
+      drawerTitle: '新增用户',
       rules: {},
       temp: {
         trainNo: '',
@@ -198,14 +198,14 @@ export default {
     addHandle() {
       this.resetTemp()
       this.drawer = true
-      this.drawerTitle = '新增设备'
+      this.drawerTitle = '新增用户'
       this.$nextTick(() => {
         this.$refs['submitForm'].clearValidate()
       })
     },
     editHandle(row) {
       this.drawer = true
-      this.drawerTitle = '编辑设备'
+      this.drawerTitle = '编辑用户'
       this.temp = Object.assign({}, row)
       this.$nextTick(() => {
         this.$refs['submitForm'].clearValidate()
@@ -224,15 +224,18 @@ export default {
       })
     },
     deleteHandle(row) {
-      this.$confirm('是否删除该条记录?')
-        .then(_ => {
-          del(row.id).then(res => {
-            this.$message({
-              message: '操作Success',
-              type: 'success'
-            })
+      this.$confirm('是否删除该条记录?', '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消'
+        }).then(_ => {
+        del(row.id).then(res => {
+          this.$message({
+            message: '操作Success',
+            type: 'success'
           })
         })
+      })
         .catch(_ => {
           this.$message({
             message: '操作取消',
